@@ -80,14 +80,14 @@
 	\pagenumbering{arabic}
 	
 	\section{Charakterystyka ogólna projektu}
-	\paragraph*{} Aplikacja pozwala na komunikowanie się użytkowników za pomocą mikrofonu oraz głośników w czasie rzeczywistym. Aplikacja jest stworzona w języku Java oraz działa w oparciu o architekturę klient-serwer. Użytkownik po uruchomieniu, jest proszony o podanie nazwy użytkownika (Nick) oraz adresu IP serwera do którego chce się połączyć. Będąc połączonym, użytkownik ma możliwość stworzenia własnego pokoju konferencyjnego lub dołączenia do istniejącego już pokoju. Aby połączyć się z pokojem wybranym z listy, użytkownik musi podać hasło pokoju. Po podaniu prawidłowego hasła, użytkownik ma możliwość rozmowy przy pomocy naciśniętego przycisku. Ma możliwość zmiany komunikowania się w opcjach przewidzianych dla użytkownika będącego na serwerze, na opcję mówienia ciągłego. Użytkownik ma również możliwość wyciszenia innego użytkownika, znajdującego się w pokoju.
+	\paragraph*{} Aplikacja pozwala na komunikowanie się użytkowników za pomocą mikrofonu oraz głośników w czasie rzeczywistym. Aplikacja jest stworzona w języku Java oraz działa w oparciu o architekturę klient-serwer. Użytkownik po uruchomieniu, jest proszony o podanie nazwy użytkownika (Nick) oraz adresu serwera do którego chce się połączyć. Będąc połączonym, użytkownik ma możliwość stworzenia własnego pokoju konferencyjnego lub dołączenia do istniejącego już pokoju. Aby połączyć się z pokojem wybranym z listy, użytkownik musi podać hasło pokoju. Po podaniu prawidłowego hasła, użytkownik ma możliwość rozmowy przy pomocy naciśniętego przycisku. Ma możliwość zmiany komunikowania się w opcjach przewidzianych dla użytkownika będącego na serwerze, na opcję mówienia ciągłego. Użytkownik ma również możliwość wyciszenia innego użytkownika, znajdującego się w pokoju.
 	\section{Architektura systemu}
 	\paragraph*{} System KakaduVoIP jest oparty o model architektury klient-serwer. Model ten umożliwia podział zadań, serwer zapewnia usługi dla klientów, a klienci zgłaszają żądania obsługi. Serwer korzysta z relacyjnej bazy danych PostgreSQL umiejscowionej w chmurze.
 	\section{Wymagania}
 	\paragraph*{} W tym paragrafie zostaną omówione wymagania aplikacji funkcjonalne oraz niefunkcjonalne.
 	\subsection{Wymagania funkcjonalne}
 	\begin{itemize}
-		\item użytkownik loguje się do systemu jedynie za pomocą Nazwy użytkownika oraz IP serwera,
+		\item użytkownik loguje się do systemu jedynie za pomocą Nazwy użytkownika oraz serwera,
 		\item użytkownik może zmieniać ustawienia aplikacji względem możliwości komunikowania się, tj. mówienie przez naciśnięcie przycisku lub mówienie ciągłe,
 		\item użytkownik może utworzyć pokój konferencyjny, nadając mu hasło,
 		\item użytkownik może usunąć pokój konferencyjny,
@@ -102,7 +102,8 @@
 		\item aplikacja klienta oraz serwer napisane w języku Java,
 		\item aplikacja wieloplatformowa,
 		\item szyfrowanie głosu,
-		\item do połączenia z serwerem nie jest potrzebna rejestracja użytkownika, jedynym wymogiem jest podanie Nazwy Użytkownika oraz Adresu IP serwera,
+		\item szyfrowanie zapytań do serwera,
+		\item do połączenia z serwerem nie jest potrzebna rejestracja użytkownika, jedynym wymogiem jest podanie Nazwy Użytkownika oraz Adresu serwera,
 		\item do składowania haseł posłuży relacyjna baza danych PostgreSQL,
 		\item hasła zabezpieczające pokój będą poddane funkcji haszującej.
 	\end{itemize}
@@ -114,9 +115,9 @@
 		\item Apache MINA - Open Source Framework, służący do budowania aplikacji sieciowych,
 		\item Java Media Framework - technologia umożliwiająca wstawianie multimediów do aplikacji napisanych w języku Java oraz transmisję audio za pomocą protokołu RTP,
 		\item Protocol Buffers - narzędzie do tworzenia własnych protokołów,
-		\item javax.crypto - biblioteka wykorzystana do nakładania funkcji skrótu na hasła,
-		\item javax.security - biblioteka wykorzystana do szyfrowania głosu.
+		\item java.security.MessageDigest - biblioteka wykorzystana do nakładania funkcji skrótu na hasła,
+		\item javax.security oraz javax.crypto - biblioteki wykorzystane do szyfrowania.
 	\end{itemize}
 	\paragraph*{} Hasła są przetrzymywane w relacyjnej bazie danych PostgreSQL, działającej w chmurze.
-	\paragraph*{} Użyte kodeki, zawarte w JMF:\\ MPEG Layer II Audio (.mp2) [MPEG layer 1, 2 audio ]
+	\paragraph*{} Użyte kodeki, zawarte w JMF:\\ MPEG Layer II Audio (.mp2) [MPEG layer 2 audio ]
 \end{document}
