@@ -106,16 +106,17 @@
 		\item do składowania haseł posłuży relacyjna baza danych PostgreSQL,
 		\item hasła zabezpieczające pokój będą poddane funkcji haszującej.
 	\end{itemize}
-	\section{Narzędzia, środowiska, biblioteki}
-	\paragraph*{} W niniejszym paragrafie zostaną opisane wykorzystane w aplikacji narzędzia, środowiska oraz biblioteki.
+	\section{Narzędzia, środowiska, biblioteki, kodeki}
+	\paragraph*{} W niniejszym paragrafie zostaną opisane wykorzystane w aplikacji narzędzia, środowiska, biblioteki oraz kodeki.
 	\paragraph*{} Głównym językiem wykorzystanym do napisania aplikacji jest język Java w wersji 8 Update 162. Wykorzystana jest technika Maven Project, dzięki której możliwa jest praca w różnych środowiskach programistycznych takich jak Intellij oraz Eclipse Oxygen.
-	\paragraph*{} Wykorzystanymi frameworkami oraz bibliotekami są:
+	\paragraph*{} Wykorzystane frameworki oraz biblioteki:
 	\begin{itemize}
-		\item Apache MINA - 
-		\item Java Media Framework - 
-		\item Protocol Buffers - 
-		\item java.security.MessageDigest - biblioteka wykorzystana do nakładania funkcji skrótu na hasła,
-		\item java.sound.Sampled - biblioteka wykorzystana do przetwarzania dźwięku.
+		\item Apache MINA - Open Source Framework, służący do budowania aplikacji sieciowych,
+		\item Java Media Framework - technologia umożliwiająca wstawianie multimediów do aplikacji napisanych w języku Java oraz transmisję audio za pomocą protokołu RTP,
+		\item Protocol Buffers - narzędzie do tworzenia własnych protokołów,
+		\item javax.crypto - biblioteka wykorzystana do nakładania funkcji skrótu na hasła,
+		\item javax.security - biblioteka wykorzystana do szyfrowania głosu.
 	\end{itemize}
 	\paragraph*{} Hasła są przetrzymywane w relacyjnej bazie danych PostgreSQL, działającej w chmurze.
+	\paragraph*{} Użyte kodeki, zawarte w JMF:\\ MPEG Layer II Audio (.mp2) [MPEG layer 1, 2 audio ]
 \end{document}
