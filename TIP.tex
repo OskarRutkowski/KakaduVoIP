@@ -80,22 +80,23 @@
 	\pagenumbering{arabic}
 	
 	\section{Charakterystyka ogólna projektu}
-	\paragraph*{} Aplikacja pozwala na komunikowanie się użytkowników za pomocą mikrofonu oraz głośników w czasie rzeczywistym. Aplikacja jest stworzona w języku Java oraz działa w oparciu o architekturę klient-serwer. Użytkownik po uruchomieniu, jest proszony o podanie nazwy użytkownika (Nick) oraz adresu serwera do którego chce się połączyć. Będąc połączonym, użytkownik ma możliwość stworzenia własnego pokoju konferencyjnego lub dołączenia do istniejącego już pokoju. Aby połączyć się z pokojem wybranym z listy, użytkownik musi podać hasło pokoju. Po podaniu prawidłowego hasła, użytkownik ma możliwość rozmowy przy pomocy naciśniętego przycisku. Ma możliwość zmiany komunikowania się w opcjach przewidzianych dla użytkownika będącego na serwerze, na opcję mówienia ciągłego. Użytkownik ma również możliwość wyciszenia innego użytkownika, znajdującego się w pokoju.
+	\paragraph*{} Aplikacja pozwala na komunikowanie się użytkowników za pomocą mikrofonu oraz głośników w czasie rzeczywistym. Aplikacja jest stworzona w języku Java oraz działa w oparciu o architekturę klient-serwer. Użytkownik po uruchomieniu, jest proszony o podanie nazwy użytkownika oraz adresu serwera  do którego chce się połączyć. Będąc połączonym, użytkownik ma możliwość stworzenia własnego pokoju konferencyjnego lub dołączenia do istniejącego już pokoju. Aby połączyć się z pokojem wybranym z listy, użytkownik musi podać hasło pokoju. Po podaniu prawidłowego hasła, użytkownik ma możliwość rozmowy przy pomocy naciśniętego przycisku lub zmianę metody komunikacji na opcję mówienia ciągłego. Użytkownik ma możliwość wyciszenia swojego mikrofonu lub głośników, jak też innego użytkownika, znajdującego się w pokoju.
 	\section{Architektura systemu}
 	\paragraph*{} System KakaduVoIP jest oparty o model architektury klient-serwer. Model ten umożliwia podział zadań, serwer zapewnia usługi dla klientów, a klienci zgłaszają żądania obsługi. Serwer korzysta z relacyjnej bazy danych PostgreSQL umiejscowionej w chmurze.
 	\section{Wymagania}
 	\paragraph*{} W tym paragrafie zostaną omówione wymagania aplikacji funkcjonalne oraz niefunkcjonalne.
 	\subsection{Wymagania funkcjonalne}
 	\begin{itemize}
-		\item użytkownik loguje się do systemu jedynie za pomocą Nazwy użytkownika oraz serwera,
+		\item użytkownik łączy się z systemem jedynie za pomocą nazwy użytkownika oraz adres IP serwera,
 		\item użytkownik może zmieniać ustawienia aplikacji względem możliwości komunikowania się, tj. mówienie przez naciśnięcie przycisku lub mówienie ciągłe,
 		\item użytkownik może utworzyć pokój konferencyjny, nadając mu hasło,
 		\item użytkownik może usunąć pokój konferencyjny,
-		\item użytkownik może dołączyć do pokoju wybranego z listy aktualnie dostępnych na serwerze,
-		\item użytkownik w pokoju konferencyjnym może wyjść z pokoju,
+		\item użytkownik może dołączyć do pokoju wybranego z listy aktualnie dostępnych pokoi na serwerze,
+		\item użytkownik w pokoju konferencyjnym może opuścić pokój,
 		\item użytkownik w pokoju konferencyjnym może wyciszyć innego użytkownika, aby go nie słyszeć,
 		\item użytkownik w pokoju konferencyjnym może komunikować się z innymi użytkownikami za pomocą przycisku lub mówienia ciągłego,
-		\item użytkownik w pokoju konferencyjnym może wyciszyć swój mikrofon lub wyłączyć używanie głośników.
+		\item użytkownik w pokoju konferencyjnym może wyciszyć swój mikrofon lub wyłączyć używanie głośników,
+		\item użytkownik, który założył pokój, może wyrzucić innych użytkowników z pokoju.
 	\end{itemize}
 	\subsection{Wymagania niefunkcjonalne}
 	\begin{itemize}
@@ -103,9 +104,11 @@
 		\item aplikacja wieloplatformowa,
 		\item szyfrowanie głosu,
 		\item szyfrowanie zapytań do serwera,
-		\item do połączenia z serwerem nie jest potrzebna rejestracja użytkownika, jedynym wymogiem jest podanie Nazwy Użytkownika oraz Adresu serwera,
-		\item do składowania haseł posłuży relacyjna baza danych PostgreSQL,
-		\item hasła zabezpieczające pokój będą poddane funkcji haszującej.
+		\item do połączenia z serwerem nie jest potrzebna rejestracja użytkownika, jedynym wymogiem jest podanie nazwy użytkownika oraz adres IP serwera,
+		\item do składowania haseł zabezpieczających pokoje, posłuży relacyjna baza danych PostgreSQL,
+		\item hasła zabezpieczające pokój będą poddane funkcji haszującej,
+		\item interfejs stworzony w języku polskim,
+		\item do sprawnego działania aplikacji, niezbędne są słuchawki lub głośniki oraz mikrofon.
 	\end{itemize}
 	\section{Narzędzia, środowiska, biblioteki, kodeki}
 	\paragraph*{} W niniejszym paragrafie zostaną opisane wykorzystane w aplikacji narzędzia, środowiska, biblioteki oraz kodeki.
@@ -118,6 +121,14 @@
 		\item java.security.MessageDigest - biblioteka wykorzystana do nakładania funkcji skrótu na hasła,
 		\item javax.security oraz javax.crypto - biblioteki wykorzystane do szyfrowania.
 	\end{itemize}
-	\paragraph*{} Hasła są przetrzymywane w relacyjnej bazie danych PostgreSQL, działającej w chmurze.
+	\paragraph*{} Hasła wraz z potrzebnymi informacjami o pokojach oraz użytkownikach są przetrzymywane w relacyjnej bazie danych PostgreSQL, działającej w chmurze.
 	\paragraph*{} Użyte kodeki, zawarte w JMF:\\ MPEG Layer II Audio (.mp2) [MPEG layer 2 audio ]
+	\section{Protokoły}
+	\paragraph*{} Jednymi z najważniejszych protokołów użytych są:
+	\begin{itemize}
+		\item RTP
+		\item TCP
+		\item UDP
+	\end{itemize}
+	\section{Schematy bazy danych}
 \end{document}
