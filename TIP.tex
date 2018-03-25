@@ -130,9 +130,20 @@
 	\section{Protokoły}
 	\paragraph*{} Jednymi z najważniejszych protokołów użytych są:
 	\begin{itemize}
-		\item RTP
-		\item TCP
-		\item UDP
+		\item Warstwa aplikacji:
+		\begin{itemize}
+			\item RTP - protokół transmisji w czasie rzeczywistym - do przesyłania głosu,
+			\item Protokoły własne - protokoły do komunikacji z serwerem.
+		\end{itemize}
+		\item Warstwa transportowa:
+		\begin{itemize}
+			\item TCP - protokół kontroli transmisji - do komunikacji z serwerem,
+			\item UDP - transportowy protokół bezpołączeniowy - do przesyłania próbek z głosem.
+		\end{itemize}
+		\item Warstwa sieci:
+		\begin{itemize}
+			\item IP - podstawowy protokół stosowany w Internecie.
+		\end{itemize}
 	\end{itemize}
 	\section{Schematy bazy danych}
 	\section{Diagramy UML}
