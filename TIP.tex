@@ -89,10 +89,10 @@
 	\begin{itemize}
 		\item użytkownik łączy się z systemem jedynie za pomocą nazwy użytkownika oraz adresu serwera,
 		\item użytkownik może zmieniać ustawienia aplikacji względem możliwości komunikowania się, tj. mówienie przez naciśnięcie przycisku lub mówienie ciągłe,
-		\item użytkownik może utworzyć pokój konferencyjny, nadając mu hasło oraz tworząc hasło administracyjne, stając się administratorem tego pokoju,
+		\item użytkownik może utworzyć pokój konferencyjny, nadając mu nazwę i hasło dostępu do pokoju oraz tworząc hasło administracyjne, stając się administratorem tego pokoju,
 		\item administrator pokoju, który stworzył pokój, może usunąć pokój konferencyjny,
 		\item administrator, który założył pokój, może wyrzucić innych użytkowników z pokoju.
-		\item użytkownik może dołączyć do pokoju wybranego z listy aktualnie dostępnych pokoi na serwerze,
+		\item użytkownik może dołączyć do pokoju wybranego z listy aktualnie dostępnych pokoi na serwerze, podając hasło dostępu do pokoju,
 		\item użytkownik w pokoju konferencyjnym może opuścić pokój,
 		\item użytkownik w pokoju konferencyjnym może wyciszyć innego użytkownika, aby go nie słyszeć,
 		\item użytkownik w pokoju konferencyjnym może komunikować się z innymi użytkownikami za pomocą przycisku lub mówienia ciągłego,
@@ -102,7 +102,7 @@
 	\subsection{Wymagania niefunkcjonalne}
 	\begin{itemize}
 		\item nowo utworzony pokój nie potrzebuje administratora pokoju będącego aktualnie w pokoju,
-		\item pokój może być usunięty przez administratora pokoju dzięki podaniu hasła pokoju oraz hasła administracyjnego,
+		\item pokój może być usunięty przez administratora pokoju dzięki podaniu hasła dostępu do pokoju oraz hasła administracyjnego,
 		\item po usunięciu pokoju przez administratora pokoju, wszyscy użytkownicy zostają automatycznie przekierowani do głównej strony aplikacji,
 		\item aplikacja klienta oraz serwer napisane w języku Java,
 		\item aplikacja wieloplatformowa,
@@ -110,7 +110,7 @@
 		\item szyfrowanie zapytań do serwera,
 		\item do połączenia z serwerem nie jest potrzebna rejestracja użytkownika, jedynym wymogiem jest podanie nazwy użytkownika oraz adres serwera,
 		\item do składowania haseł zabezpieczających pokoje, posłużą pliki lokalne składowane na serwerze,
-		\item hasła zabezpieczające pokój będą poddane funkcji haszującej,
+		\item hasła dostępu do pokoju oraz hasła administracyjne będą poddane funkcji haszującej,
 		\item interfejs stworzony w języku polskim,
 		\item do sprawnego działania aplikacji, niezbędne są słuchawki lub głośniki oraz mikrofon.
 	\end{itemize}
