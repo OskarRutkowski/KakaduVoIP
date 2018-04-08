@@ -1,4 +1,8 @@
-\documentclass[12pt,a4paper,notitlepage]{report}
+
+\documentclass{article}
+
+\usepackage{float}
+\usepackage{textcomp}
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -162,23 +166,63 @@
 
 	Zgodnie z rysunkiem \ref{fig:BD}, baza danych składa się z jednej tabeli opisującej pokój. Id\_pokoju wskazuje na identyfikator konkretnego utworzonego przez użytkownika pokoju. Nazwę pokoju nadaje użytkownik podczas tworzenia pokoju. Hasło dostępu do pokoju oraz hasło administracyjne są wynikiem funkcji skrótu. 
 	\section{Diagramy UML}
+	\subsection{Diagramy przypadków użycia}
 	\paragraph{} W niniejszym paragrafie zostanią przedstawione diagramy UML aktorów oraz ich zadań funkcjonalnych.
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.9]{UserNP}
 		\caption[]{Diagram użytkownika niepołączonego}
 		\label{fig:DUN}
 	\end{figure}
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.9]{UserPiAdm}
 		\caption[]{Diagram użytkownika połączonego oraz administratora pokoju}
 		\label{fig:DUP}
 	\end{figure}
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.9]{UserPK}
 		\caption[]{Diagram użytkownika w pokoju konferencyjnym}
 		\label{fig:DUW}
 	\end{figure}
+	\subsection{Diagramy sekwencji}
+	\paragraph{} W niniejszym paragrafie zostanią przedstawione diagramy UML przedstawiające proces łączenia się użytkownika z serwerem, tworzenia pokoju konferencyjnego oraz usuwania pokoju konferencyjnego.
+	\begin{figure}[H]
+		\centering
+		\hspace*{-2cm} 
+		\includegraphics[scale=0.9]{seq1}
+		\caption[]{Diagram połączenia z serwerem}
+		\label{fig:seq1}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\hspace*{-2cm} 
+		\includegraphics[scale=0.9]{seq2}
+		\caption[]{Diagram tworzenia pokoju konferencyjnego}
+		\label{fig:seq2}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\hspace*{-2cm} 
+		\includegraphics[scale=0.9]{seq3}
+		\caption[]{Diagram usuwania pokoju konferencyjnego}
+		\label{fig:seq3}
+	\end{figure}
+	\section{Projekt interfejsu graficznego}
+	\paragraph*{} W paragrafie zostanie przedstawiony projekt interfejsu graficznego aplikacji.
+	\begin{figure}[H]
+		\centering
+		\hspace*{0cm} 
+		\includegraphics[scale=0.9]{glowna}
+		\caption[]{Interfejs ekranu połączenia}
+		\label{fig:gui1}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.9]{glowna2}
+		\caption[]{Interfejs ekranu głównego aplikacji}
+		\label{fig:gui2}
+	\end{figure}
+
 \end{document}
