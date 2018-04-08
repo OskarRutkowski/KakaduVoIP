@@ -116,7 +116,7 @@
 		\item po usunięciu pokoju przez administratora pokoju, wszyscy użytkownicy zostają automatycznie przekierowani do głównej strony aplikacji,
 		\item aplikacja klienta oraz serwer napisane w języku Java,
 		\item aplikacja wieloplatformowa,
-		\item szyfrowanie głosu,
+		\item szyfrowanie dźwięku,
 		\item szyfrowanie zapytań do serwera,
 		\item do połączenia z serwerem nie jest potrzebna rejestracja użytkownika, jedynym wymogiem jest podanie nazwy użytkownika oraz adres serwera,
 		\item do składowania haseł zabezpieczających pokoje, posłużą pliki lokalne składowane na serwerze,
@@ -142,13 +142,21 @@
 	\begin{itemize}
 		\item Warstwa aplikacji:
 		\begin{itemize}
-			\item RTP - protokół transmisji w czasie rzeczywistym - do przesyłania głosu,
-			\item Protokoły własne - protokoły do komunikacji z serwerem.
+			\item RTP - protokół transmisji w czasie rzeczywistym - do przesyłania dźwięku,
+			\item RTCP (ang. Real Time Control Protocol) - protokół sterujący używany do okresowej transmisji pakietów kontrolnych do wszystkich uczestników sesji. Pozwala monitorować dostarczanie danych przez protokół RTP i transport zwrotnej informacji odnośnie jakości transmisji,
+			\item protokoły własne - protokoły do komunikacji z serwerem:
+			\begin{enumerate}
+				\item protokół do połączenia z serwerem,
+				\item protokół do przesłania listy dostępnych pokoi,
+				\item protokół do zarządzania pokojami(tworzenie, usuwanie),
+				\item protokół służący do dołączania/wychodzenia z pokoju,
+				\item protokół pozwalający na wyciszenie innego użytkownika. 
+			\end{enumerate}
 		\end{itemize}
 		\item Warstwa transportowa:
 		\begin{itemize}
 			\item TCP - protokół kontroli transmisji - do komunikacji z serwerem,
-			\item UDP - transportowy protokół bezpołączeniowy - do przesyłania próbek z głosem.
+			\item UDP - transportowy protokół bezpołączeniowy - do przesyłania próbek z dźwiękiem.
 		\end{itemize}
 		\item Warstwa sieci:
 		\begin{itemize}
