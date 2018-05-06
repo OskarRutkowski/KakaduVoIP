@@ -7,6 +7,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{listings}
 \graphicspath{ {res/} }
 
 
@@ -147,14 +148,56 @@
 			\item RTP - protokół transmisji w czasie rzeczywistym - do przesyłania dźwięku,
 			\item RTCP (ang. Real Time Control Protocol) - protokół sterujący używany do okresowej transmisji pakietów kontrolnych do wszystkich uczestników sesji. Pozwala monitorować dostarczanie danych przez protokół RTP i transport zwrotnej informacji odnośnie jakości transmisji,
 			\item protokoły własne - protokoły do komunikacji z serwerem:
-			\begin{enumerate}
-				\item protokół do połączenia z serwerem,
-				\item protokół do przesłania listy dostępnych pokoi,
-				\item protokół do zarządzania pokojami(tworzenie, usuwanie),
-				\item protokół służący do dołączania/wychodzenia z pokoju,
-				\item protokół pozwalający na wyciszenie innego użytkownika. 
-			\end{enumerate}
 		\end{itemize}
+		\begin{lstlisting}[language=Java]
+				message Room {
+				required string room_name = 1;
+				required string owner = 2;
+				}
+				
+				message LoginToServerRequest {
+				required string nick = 1;
+				}
+				
+				message LoginToServerResponse {
+				required StatusCode status = 1;
+				repeated Room roomList = 2;
+				}
+				
+				message LeaveServerRequest{
+				required string nick = 1;
+				}
+				
+				message LeaveServerResponse {
+				required StatusCode status = 1;
+				}
+				
+				enum ManageRoomEnum {
+				CREATE_ROOM = 1;
+				DELETE_ROOM = 2;
+				JOIN_ROOM = 3;
+				LEAVE_ROOM = 4;
+				MUTE_USER = 5;
+				UNMUTE_USER = 6;
+				KICK_USER = 7;
+				}
+				
+				message ManageRoomRequest {
+				required ManageRoomEnum manageRoomEnum = 1;
+				required string nick = 2;
+				required string roomName = 3;
+				optional string password = 4;
+				optional string adminPassword = 5;
+				optional string otherUserNick = 6;
+				}
+				
+				message ManageRoomResponse {
+				required StatusCode status = 1;
+				optional string keyToRoom = 2;
+				}
+				\end{lstlisting}
+			
+		
 		\item Warstwa transportowa:
 		\begin{itemize}
 			\item TCP - protokół kontroli transmisji - do komunikacji z serwerem,
@@ -218,6 +261,22 @@
 		\includegraphics[scale=0.9]{seq3}
 		\caption[]{Diagram usuwania pokoju konferencyjnego}
 		\label{fig:seq3}
+	\end{figure}
+	\subsection{Diagramy stanów}
+	\paragraph{} W niniejszym paragrafie zostanią przedstawione diagramy UML przedstawiające przejścia stanów w aplikacji klienckiej oraz serwerowej.
+	\begin{figure}[H]
+		\centering
+		\hspace*{-0cm} 
+		\includegraphics[scale=0.9]{stan1}
+		\caption[]{Diagram stanów w aplikacji klienckiej}
+		\label{fig:kli}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\hspace*{-0cm} 
+		\includegraphics[scale=0.9]{stan2}
+		\caption[]{Diagram stanów w aplikacji serwerowej}
+		\label{fig:ser}
 	\end{figure}
 	\section{Projekt interfejsu graficznego}
 	\paragraph*{} W paragrafie zostanie przedstawiony projekt interfejsu graficznego aplikacji.
