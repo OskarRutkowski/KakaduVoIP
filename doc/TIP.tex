@@ -193,7 +193,7 @@
 				\}\\
 				\\
 				Protokół zarządzania pokojem służy do zarządzania pokojem. Niezbędne pola manageRoomEnum, nick oraz roomName wskazują kolejno na: akcje związane z zarządzaniem pokojem, nazwę użytkownika, który chce zarządzać oraz nazwę pokoju, który ma być zarządzany. Dodatkowe pola wskazują na hasło dołączenia do pokoju, hasło administracyjne, służące do usuwania pokoju przez administratora oraz nazwa innego użytkownika, w przypadku wyciszania lub usuwania z pokoju.
-			\item protokół odpowiedzi na żądanie zarządzania pokojem:
+			\item protokół odpowiedzi na żądanie zarządzania pokojem:\\
 				message ManageRoomResponse \{\\
 					required StatusCode status = 1;\\
 					optional string keyToRoom = 2;\\
