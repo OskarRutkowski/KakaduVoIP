@@ -148,55 +148,76 @@
 			\item RTP - protokół transmisji w czasie rzeczywistym - do przesyłania dźwięku,
 			\item RTCP (ang. Real Time Control Protocol) - protokół sterujący używany do okresowej transmisji pakietów kontrolnych do wszystkich uczestników sesji. Pozwala monitorować dostarczanie danych przez protokół RTP i transport zwrotnej informacji odnośnie jakości transmisji,
 			\item protokoły własne - protokoły do komunikacji z serwerem:
-		\end{itemize}
-		\begin{lstlisting}[language=Java]
-				message Room {
-				required string room_name = 1;
-				required string owner = 2;
-				}
+		
+		
+			\item protokół informacji o pokoju:\\ \\
+				message Room \{\\
+				required string room\_name = 1;\\
+				required string owner = 2;\\
+				\}\\
+				\\
+				Protokół informacji o pokoju zawiera niezbędne pola do identyfikacji kontkretnych pokoi, takie jak nazwa pokoju oraz właściciel pokoju (użytkownik, który stworzył konkretny pokój).
+			\item protokół żądania klienta podłączenia do serwera: \\ \\
+				message LoginToServerRequest \{\\
+				required string nick = 1;\\
+				\}\\
+				\\	
+				Protokół żądania klienta podłączenia do serwera zawiera pole nick, wskazujące na nazwę użytkownika, chcącego podłączyć się do serwera.
+			\item protokół odpowiedzi na żądanie klienta podłączenia do serwera: \\ \\
+				message LoginToServerResponse \{\\
+				required StatusCode status = 1;\\
+				repeated Room roomList = 2;\\
+				\}\\
+				\\
+				Protokół odpowiedzi, zwraca klientowi status żądania oraz listę dostępnych pokoi, przy poprawnym połączeniu się z serwerem.
+			\item protokół opuszczenia serwera: \\
+				message LeaveServerRequest\{\\
+				required string nick = 1;\\
+				\}\\
+				\\
+				Protokół opuszczenia serwera zawiera pole nick, wskazujący na użytkownika, który chce opuścić serwer.
+			\item protokół odpowiedzi na opuszczenie serwera:\\
+				message LeaveServerResponse \{\\
+				required StatusCode status = 1;\\
+				\}\\
+				\\
+				Protokół odpowiedzi zawiera pole status, informujące o pomyślnej lub negatywnej odpowiedzi na żądanie.
+			\item protokół żądania zadrządzania pokojem:\\
+				message ManageRoomRequest \{\\
+					required ManageRoomEnum manageRoomEnum = 1;\\
+					required string nick = 2;\\
+					required string roomName = 3;\\
+					optional string password = 4;\\
+					optional string adminPassword = 5;\\
+					optional string otherUserNick = 6;\\
+				\}\\
+				\\
+				Protokół zarządzania pokojem służy do zarządzania pokojem. Niezbędne pola manageRoomEnum, nick oraz roomName wskazują kolejno na: akcje związane z zarządzaniem pokojem, nazwę użytkownika, który chce zarządzać oraz nazwę pokoju, który ma być zarządzany. Dodatkowe pola wskazują na hasło dołączenia do pokoju, hasło administracyjne, służące do usuwania pokoju przez administratora oraz nazwa innego użytkownika, w przypadku wyciszania lub usuwania z pokoju.
+			\item protokół odpowiedzi na żądanie zarządzania pokojem:
+				message ManageRoomResponse \{\\
+					required StatusCode status = 1;\\
+					optional string keyToRoom = 2;\\
+				\}\\
+				\\
+				Protokół odpowiedzi zawiera status odpowiedzi oraz opcjonalny klucz szyfrowania.
+			\item typ wyliczeniowy do zarządzania pokojem:\\
+				enum ManageRoomEnum \{\\
+					CREATE\_ROOM = 1;\\
+					DELETE\_ROOM = 2;\\
+					JOIN\_ROOM = 3;\\
+					LEAVE\_ROOM = 4;\\
+					MUTE\_USER = 5;\\
+					UNMUTE\_USER = 6;\\
+					KICK\_USER = 7;\\
+				\}\\
+				\\
+				Typ wyliczeniowy pomocny przy protokole zarządzania pokojem.
 				
-				message LoginToServerRequest {
-				required string nick = 1;
-				}
 				
-				message LoginToServerResponse {
-				required StatusCode status = 1;
-				repeated Room roomList = 2;
-				}
 				
-				message LeaveServerRequest{
-				required string nick = 1;
-				}
 				
-				message LeaveServerResponse {
-				required StatusCode status = 1;
-				}
 				
-				enum ManageRoomEnum {
-				CREATE_ROOM = 1;
-				DELETE_ROOM = 2;
-				JOIN_ROOM = 3;
-				LEAVE_ROOM = 4;
-				MUTE_USER = 5;
-				UNMUTE_USER = 6;
-				KICK_USER = 7;
-				}
-				
-				message ManageRoomRequest {
-				required ManageRoomEnum manageRoomEnum = 1;
-				required string nick = 2;
-				required string roomName = 3;
-				optional string password = 4;
-				optional string adminPassword = 5;
-				optional string otherUserNick = 6;
-				}
-				
-				message ManageRoomResponse {
-				required StatusCode status = 1;
-				optional string keyToRoom = 2;
-				}
-				\end{lstlisting}
-			
+		\end{itemize}	
 		
 		\item Warstwa transportowa:
 		\begin{itemize}
