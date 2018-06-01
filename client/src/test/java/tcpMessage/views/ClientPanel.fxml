@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="736.0" style="-fx-background-color: ba5c12;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tcpMessage.controllers.ClientPanelController">
+   <children>
+      <AnchorPane fx:id="room_with_users_pane_admin" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="364.0" fitWidth="736.0">
+               <image>
+                  <Image url="@Kakadu.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="24.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pokój: ">
+               <font>
+                  <Font name="Segoe Script Bold" size="31.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="321.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podłączony jako:" wrappingWidth="219.00000262260437">
+               <font>
+                  <Font name="Segoe Script Bold" size="22.0" />
+               </font>
+            </Text>
+            <MenuBar prefHeight="25.0" prefWidth="736.0" style="-fx-background-color: #efcf6d;">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Ustawienia">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Ustawienia audio" />
+                        <MenuItem mnemonicParsing="false" text="Opuść serwer" />
+                     </items>
+                  </Menu>
+                   <Menu mnemonicParsing="false" text="O KakaduVoIP" >
+                       <items>
+                           <MenuItem onAction="#show_info" mnemonicParsing="false" text="O KakaduVoIP" />
+                       </items>
+                   </Menu>
+               </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </MenuBar>
+            <Label fx:id="room_lbl_admin" layoutX="155.0" layoutY="53.0" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="user_lbl_admin" layoutX="557.0" layoutY="53.0" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script" size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="del_room_btn_admin" layoutX="151.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#delete_room" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #ba5c12;" text="Usuń pokój" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="kick_user_btn_admin" layoutX="151.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#help" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #ba5c12;" text="Usuń użytkownika" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="leave_room_btn_admin" layoutX="151.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#leave_room" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #ba5c12;" text="Opuść pokój" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script Bold" size="14.0" />
+               </font>
+            </Button>
+            <TableView fx:id="user_tbl_admin" layoutX="321.0" layoutY="115.0" prefHeight="200.0" prefWidth="288.0">
+              <columns>
+                <TableColumn fx:id="user_tbl_username_admin" prefWidth="208.0" text="Nazwa użytkownika" />
+                <TableColumn fx:id="user_tbl_action_admin" prefWidth="79.0" text="Akcja" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="info_pane" prefHeight="364.0" prefWidth="736.0">
+         <children>
+            <ImageView fitHeight="364.0" fitWidth="736.0">
+               <image>
+                  <Image url="@Kakadu.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="368.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KakaduVoIP to komunikator głosowy do łączenia się ze światem stworzony na potrzeby studenckiego projektu. Podłącz się do pokoju znajomych i zacznij rozmawiać! Zapraszamy do rozmów!" textAlignment="CENTER" wrappingWidth="218.99999906495214">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="238.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KakaduVoIP">
+               <font>
+                  <Font name="Segoe Script Bold" size="39.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="82.0" layoutY="82.0">
+               <image>
+                  <Image url="@icon.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="168.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v0.1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="113.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\@2018 KakaduVoIP">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="back_btn2" layoutX="418.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#menu_go_back" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #ba5c12;" text="Wróć" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script Bold" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+       <AnchorPane fx:id="room_with_users_pane_user" prefHeight="200.0" prefWidth="200.0">
+           <children>
+               <ImageView fitHeight="364.0" fitWidth="736.0">
+                   <image>
+                       <Image url="@Kakadu.png" />
+                   </image>
+               </ImageView>
+               <Text fill="WHITE" layoutX="24.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pokój: ">
+                   <font>
+                       <Font name="Segoe Script Bold" size="31.0" />
+                   </font>
+               </Text>
+               <Text fill="WHITE" layoutX="321.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podłączony jako:" wrappingWidth="219.00000262260437">
+                   <font>
+                       <Font name="Segoe Script Bold" size="22.0" />
+                   </font>
+               </Text>
+               <MenuBar  onMouseClicked="#show_info" prefHeight="25.0" prefWidth="736.0" style="-fx-background-color: #efcf6d;">
+                   <menus>
+                       <Menu mnemonicParsing="false" text="Ustawienia">
+                           <items>
+                               <MenuItem mnemonicParsing="false" text="Ustawienia audio" />
+                               <MenuItem onAction="#leave_server" mnemonicParsing="false" text="Opuść serwer" />
+                           </items>
+                       </Menu>
+                       <Menu mnemonicParsing="false" text="O KakaduVoIP" >
+                           <items>
+                               <MenuItem onAction="#show_info" mnemonicParsing="false" text="O KakaduVoIP" />
+                           </items>
+                       </Menu>
+                   </menus>
+                   <opaqueInsets>
+                       <Insets />
+                   </opaqueInsets>
+               </MenuBar>
+               <Label fx:id="room_lbl_user" layoutX="155.0" layoutY="53.0" textFill="WHITE">
+                   <font>
+                       <Font name="Segoe Script" size="22.0" />
+                   </font>
+               </Label>
+               <Label fx:id="user_lbl_user" layoutX="557.0" layoutY="53.0" textFill="WHITE">
+                   <font>
+                       <Font name="Segoe Script" size="22.0" />
+                   </font>
+               </Label>
+               <Button fx:id="leave_room_btn_user" layoutX="151.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#leave_room" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #ba5c12;" text="Opuść pokój" textFill="WHITE">
+                   <font>
+                       <Font name="Segoe Script Bold" size="14.0" />
+                   </font>
+               </Button>
+               <TableView fx:id="user_tbl" layoutX="321.0" layoutY="115.0" prefHeight="200.0" prefWidth="288.0">
+                   <columns>
+                       <TableColumn fx:id="user_tbl_username_user" prefWidth="208.0" text="Nazwa użytkownika" />
+                       <TableColumn fx:id="user_tbl_action_user" prefWidth="79.0" text="Akcja" />
+                   </columns>
+               </TableView>
+           </children>
+       </AnchorPane>
+       <AnchorPane fx:id="rooms_pane" prefHeight="364.0" prefWidth="736.0">
+         <ImageView fitHeight="364.0" fitWidth="736.0">
+            <image>
+               <Image url="@Kakadu.png" />
+            </image>
+         </ImageView>
+           <Button fx:id="con_room_btn" layoutX="440.0" layoutY="98.0" mnemonicParsing="false" onMouseClicked="#room_connect" prefHeight="45.0" prefWidth="219.0" style="-fx-background-color: #ba5c12;" text="Dołącz do pokoju" textFill="WHITE">
+               <font>
+                   <Font name="Segoe Script Bold" size="18.0" />
+               </font>
+           </Button>
+           <MenuBar layoutY="-2.0" prefHeight="25.0" prefWidth="736.0" style="-fx-background-color: #efcf6d;">
+               <menus>
+                   <Menu mnemonicParsing="false" text="Ustawienia">
+                       <items>
+                           <MenuItem mnemonicParsing="false" text="Ustawienia audio" />
+                           <MenuItem onAction="#leave_server" mnemonicParsing="false" text="Opuść serwer" />
+                       </items>
+                   </Menu>
+                   <Menu mnemonicParsing="false" text="O KakaduVoIP" >
+                   <items>
+                       <MenuItem onAction="#show_info" mnemonicParsing="false" text="O KakaduVoIP" />
+                   </items>
+                   </Menu>
+               </menus>
+               <opaqueInsets>
+                   <Insets />
+               </opaqueInsets>
+           </MenuBar>
+           <Text fill="WHITE" layoutX="72.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista dostępnych pokoi:">
+               <font>
+                   <Font name="Segoe Script Bold" size="18.0" />
+               </font>
+           </Text>
+           <Button fx:id="create_btn" layoutX="440.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#room_create" prefHeight="45.0" prefWidth="219.0" style="-fx-background-color: #ba5c12;" text="Stwórz własny pokój" textFill="WHITE">
+               <font>
+                   <Font name="Segoe Script Bold" size="17.0" />
+               </font>
+           </Button>
+           <Text fill="WHITE" layoutX="528.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lub">
+               <font>
+                   <Font name="Segoe Script" size="20.0" />
+               </font>
+           </Text>
+         <Button fx:id="reload_btn" layoutX="82.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#reload_rooms" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ba5c12;" text="Odśwież" textFill="WHITE">
+            <font>
+               <Font name="Segoe Script Bold" size="12.0" />
+            </font>
+         </Button>
+         <TableView fx:id="room_tbl" layoutX="82.0" layoutY="82.0" onMouseClicked="#choose_row" prefHeight="223.0" prefWidth="207.0">
+           <columns>
+             <TableColumn fx:id="name_col" prefWidth="130.0" text="Nazwa" />
+             <TableColumn fx:id="owner_col" prefWidth="70.0" text="Właściciel" />
+           </columns>
+         </TableView>
+       </AnchorPane>
+      <AnchorPane fx:id="create_room_pane" prefHeight="364.0" prefWidth="736.0">
+         <ImageView fitHeight="364.0" fitWidth="736.0">
+            <image>
+               <Image url="@Kakadu.png" />
+            </image>
+         </ImageView>
+          <TextField fx:id="v_room_name" layoutX="75.0" layoutY="129.0" style="-fx-background-color: #dabd64; -fx-border-color: #3b132b; -fx-border-width: 0px 0px 2px 0px;" />
+          <MenuBar prefHeight="25.0" prefWidth="736.0" style="-fx-background-color: #efcf6d;">
+              <menus>
+                  <Menu mnemonicParsing="false" text="Ustawienia">
+                      <items>
+                          <MenuItem mnemonicParsing="false" text="Ustawienia audio" />
+                          <MenuItem mnemonicParsing="false" text="Opuść serwer" />
+                      </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="O KakaduVoIP" >
+                      <items>
+                          <MenuItem onAction="#show_info" mnemonicParsing="false" text="O KakaduVoIP" />
+                      </items>
+                  </Menu>
+              </menus>
+              <opaqueInsets>
+                  <Insets />
+              </opaqueInsets>
+          </MenuBar>
+          <Text fill="WHITE" layoutX="212.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stwórz nowy pokój">
+              <font>
+                  <Font name="Segoe Script Bold" size="31.0" />
+              </font>
+          </Text>
+          <TextField fx:id="v_room_passadmin" layoutX="75.0" layoutY="279.0" style="-fx-background-color: #dabd64; -fx-border-color: #3b132b; -fx-border-width: 0px 0px 2px 0px;" />
+          <TextField fx:id="v_room_passwd" layoutX="75.0" layoutY="205.0" style="-fx-background-color: #dabd64; -fx-border-color: #3b132b; -fx-border-width: 0px 0px 2px 0px;" />
+          <Button fx:id="back_btn" layoutX="574.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#go_back" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #ba5c12;" text="Wróć" textFill="WHITE">
+              <font>
+                  <Font name="Segoe Script Bold" size="17.0" />
+              </font>
+          </Button>
+          <Button fx:id="create_room_btn" layoutX="433.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#create_create_room" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #ba5c12;" text="Stwórz" textFill="WHITE">
+              <font>
+                  <Font name="Segoe Script Bold" size="17.0" />
+              </font>
+          </Button>
+          <Text fill="WHITE" layoutX="50.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nadaj hasło do pokoju:">
+              <font>
+                  <Font name="Segoe Script" size="16.0" />
+              </font>
+          </Text>
+          <Text fill="WHITE" layoutX="22.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nadaj hasło administracyjne:">
+              <font>
+                  <Font name="Segoe Script" size="16.0" />
+              </font>
+          </Text>
+          <Text fill="WHITE" layoutX="60.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podaj nazwę pokoju:">
+              <font>
+                  <Font name="Segoe Script" size="16.0" />
+              </font>
+          </Text>
+          <Button fx:id="help_btn" layoutX="574.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#help" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #ba5c12;" text="Pomoc" textFill="WHITE">
+              <font>
+                  <Font name="Segoe Script Bold" size="17.0" />
+              </font>
+          </Button>
+
+      </AnchorPane>
+      <AnchorPane fx:id="start_pane" prefHeight="364.0" prefWidth="736.0">
+         <ImageView fitHeight="364.0" fitWidth="736.0">
+            <image>
+               <Image url="@Kakadu.png" />
+            </image>
+         </ImageView>
+      <Button fx:id="connection_btn" layoutX="607.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#connect_login" prefHeight="41.0" prefWidth="91.0" style="-fx-background-color: #ba5c12;" text="Połącz" textFill="WHITE">
+         <font>
+            <Font name="Segoe Script Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="v_username" layoutX="100.0" layoutY="146.0" style="-fx-background-color: #dabd64; -fx-border-color: #3b132b; -fx-border-width: 0px 0px 2px 0px;" />
+      <TextField fx:id="v_host" layoutX="100.0" layoutY="219.0" style="-fx-background-color: #dabd64; -fx-border-color: #3b132b; -fx-border-width: 0px 0px 2px 0px;" />
+      <TextField fx:id="v_port" layoutX="100.0" layoutY="294.0" style="-fx-background-color: #dabd64; -fx-border-color: #3b132b; -fx-border-width: 0px 0px 2px 0px;" />
+      <Text fill="WHITE" layoutX="45.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KakaduVoIP">
+         <font>
+            <Font name="Segoe Script Bold" size="39.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="83.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podaj nazwę użytkownika:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="102.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podaj adres serwera:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="106.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podaj port serwera:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="339.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="komunikator głosowy">
+         <font>
+            <Font name="Segoe Script" size="18.0" />
+         </font>
+      </Text>
+      </AnchorPane>
+   </children>
+    
+</AnchorPane>

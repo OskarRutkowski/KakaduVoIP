@@ -1,0 +1,62 @@
+syntax = "proto2";
+
+option java_package = "protocols";
+option java_outer_classname = "Protocols";
+
+enum StatusCode {
+    OK = 0;
+    BAD_CREDENTIALS = 1;
+    SERVER_ERROR = 2;
+}
+
+message Room {
+    required string room_name = 1;
+    required string owner = 2;
+}
+
+//messageCode: 1
+message LoginToServerRequest {
+    required string nick = 1;
+}
+
+//messageCode: 2
+message LoginToServerResponse {
+    required StatusCode status = 1;
+    repeated Room roomList = 2;
+}
+
+//messageCode: 3
+message LeaveServerRequest{
+    required string nick = 1;
+}
+
+//messageCode: 4
+message LeaveServerResponse {
+    required StatusCode status = 1;
+}
+
+enum ManageRoomEnum {
+    CREATE_ROOM = 1;
+    DELETE_ROOM = 2;
+    JOIN_ROOM = 3;
+    LEAVE_ROOM = 4;
+    MUTE_USER = 5;
+    UNMUTE_USER = 6;
+    KICK_USER = 7;
+}
+
+//messageCode: 5
+message ManageRoomRequest {
+    required ManageRoomEnum manageRoomEnum = 1;
+    required string nick = 2;
+    required string roomName = 3;
+    optional string password = 4;
+    optional string adminPassword = 5;
+    optional string otherUserNick = 6;
+}
+
+//messageCode: 6
+message ManageRoomResponse {
+    required StatusCode status = 1;
+    optional string keyToRoom = 2;
+}
